@@ -1,0 +1,14 @@
+.data-table {
+  text-align: left;
+  tr {
+    border-bottom: 1px solid lightgray;
+  }
+  td,
+  th {
+    padding: 5px 10px;
+    min-height: 32px;
+  }
+}
+.data-table__title {
+  text-align: left;
+}

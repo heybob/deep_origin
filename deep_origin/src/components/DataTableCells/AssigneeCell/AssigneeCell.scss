@@ -1,0 +1,65 @@
+.assignee-cell {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  cursor: pointer;
+
+  .assignee-cell__name {
+    display: flex;
+    align-items: center;
+    margin-right: 5px;
+  }
+  .assignee-cell__button {
+    margin: 0 5px 0 0;
+    width: 24px;
+    padding: 0;
+    border: transparent;
+    background-color: transparent;
+    outline: none;
+  }
+  .assignee-cell__delete {
+    font-size: 24px;
+    margin-top: 3px;
+    color: gray;
+    transition: color 300ms;
+    &:hover {
+      color: black;
+    }
+  }
+
+  .assignee-cell__container {
+    display: flex;
+    margin-bottom: 2px;
+  }
+  .assignee-cell__container_edit {
+    display: flex;
+    margin-bottom: 2px;
+  }
+}
+
+@media screen and (min-width: 0px) and (max-width: 760px) {
+  .assignee-cell {
+
+    .assignee-cell__name {
+      display: none;
+    }
+  }
+}
+@media screen and (min-width: 760px) and (max-width: 1200px) {
+  .assignee-cell {
+    .assignee-cell__name {
+      display: none;
+    }
+  }
+  // .assignee-count {
+  //   display: none;
+  // }
+}
+
+// @media screen and (min-width: 960px) {
+//   .assignee-count {
+//     display: none;
+//   }
+// }
+
+// 320, 480, 760, 960, 1200, and 1600

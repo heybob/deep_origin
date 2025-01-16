@@ -1,0 +1,74 @@
+.flist {
+  width: 100%;
+  text-align: left;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+
+  ul {
+    width: 100%;
+    max-height: 300px;
+    min-height: 50px;
+    overflow: auto;
+    position: absolute;
+    z-index: 99;
+    text-decoration: none;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border: 1px solid lightgray;
+    text-align: left;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px #aaa;
+    top: 31px;
+    left: 0;
+    background-color: white;
+  }
+
+  li {
+    display: flex;
+    align-items: center;
+    padding: 5px 0 5px 2px;
+  }
+  input {
+    font-size: 14px;
+    height: 25px;
+    border: 1px solid lightgray;
+    padding: 2px 30px 2px 30px;
+  }
+  .flist__msg {
+    justify-content: center;
+    font-size: 11px;
+    color: gray;
+    margin: 0 10px;
+  }
+  .flist__input__spinner {
+    position: absolute;
+    font-size: 23px;
+    top: 4px;
+    right: 10px;
+    z-index: 1;
+    animation: rotateScale 0.5s linear infinite;
+  }
+  .flist__input__search {
+    position: absolute;
+    left: 4px;
+    z-index: 1;
+    top: 5px;
+    font-size: 23px;
+    color: lightgray;
+  }
+}
+
+@keyframes rotateScale {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.2);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}

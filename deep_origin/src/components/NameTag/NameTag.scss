@@ -1,0 +1,16 @@
+.tag {
+  display: flex;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  color: white;
+  background-color: lightgray;
+  justify-content: center;
+  align-items: center;
+  margin-right: 2px;
+  cursor: default;
+}
+.tag__text {
+  color: white;
+  display: flex;
+}
