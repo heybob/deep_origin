@@ -20,7 +20,7 @@ function AssigneeCell({ cell, editor }: ICellEditorProps) {
   const [editMode, setEditMode, editSubscriberId] = editModeApi;
   const [cellValue, setCellValue] = useState<IAssigneeValue[]>(cell.value as IAssigneeValue[]);
   const [cellEditMode, setCellEditMode] = useState(false);
-  const [maxName] = useState(1);
+  const [maxName] = useState(2);
 
   useEffect(() => {
     if (cell.id !== editSubscriberId && cellEditMode) {
@@ -104,10 +104,10 @@ function AssigneeCell({ cell, editor }: ICellEditorProps) {
 
   return (
     <>
-      <td className="assignee-cell" onClick={(e) => edMode(e)}>
+      <td className="assignee-cell"  onClick={(e) => edMode(e)}>
         {cellValue.length > 0 && !editMode &&
-          cellValue.map((assignee, i) => {
-            return i < (maxName) ? (<AssigneeCellName key={keyGen()} assignee={assignee} />) : (<></>);
+          [...cellValue].slice(0,maxName).map((assignee) => {
+            return (<AssigneeCellName key={keyGen()} assignee={assignee} />) 
           })}
           {cellValue.length > 0 && editMode &&
           cellValue.map((assignee) => {

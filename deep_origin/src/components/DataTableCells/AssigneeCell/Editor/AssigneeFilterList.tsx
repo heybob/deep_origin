@@ -4,6 +4,7 @@ import { CgSpinner, CgSearch } from "react-icons/cg";
 import NameTagListItem from "../../../NameTag/NameTagListItem";
 import { SearchCacheContext } from "../../../../contexts/contexts";
 import { IAssigneeValue } from "../../../../Interfaces/interfaces";
+import { keyGen } from "../../../../utils/utils";
 
 interface IAssgineeFilterListProps {
     selectedAssignees: IAssigneeValue[]
@@ -95,7 +96,7 @@ function AssigneeFilterList({ selectedAssignees, addAssigneeCallback }:IAssginee
             searchTerm.length > 0 &&
             assignees.map((assignee:IAssigneeValue) => (
               <NameTagListItem
-                key={assignee.id}
+                key={keyGen()}
                 isDisabled={inDisabledCallback(assignee)}
                 assignee={assignee}
                 selectCallback={addAssigneeCallback}

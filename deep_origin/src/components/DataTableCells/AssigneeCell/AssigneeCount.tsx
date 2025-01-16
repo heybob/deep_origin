@@ -2,7 +2,8 @@ import { useState, memo } from "react";
 import "./AssigneeCount.scss";
 import NameTagListItem from "../../NameTag/NameTagListItem";
 import { BsFillCaretDownFill } from "react-icons/bs";
-import { IAssigneeValue } from "../../Interfaces/interfaces";
+import { IAssigneeValue } from "../../../Interfaces/interfaces";
+import { keyGen } from "../../../utils/utils";
 
 interface IAssigneeCountProps {
   assignees: IAssigneeValue[];
@@ -28,7 +29,7 @@ function AssgineeCount({ assignees, maxNames = 1}: IAssigneeCountProps) {
           <div className="assignee-count__tooltip__container">
             <ul>
               {assignees.slice(maxNames).map((assignee) => (
-                <NameTagListItem key={assignee.id} assignee={assignee} />
+                <NameTagListItem key={keyGen()} assignee={assignee} />
               ))}
             </ul>
           </div>

@@ -11,7 +11,7 @@ function NameTag({ assignee }: INameTagProps) {
     const backgroudStyle = assignee.img ? { backgroundImage: `url(/img/${assignee.img})`, backgroundSize: 'cover'}:{backgroundImage: 'none'};
 
   return (
-    <div className="tag"  style={backgroudStyle}title={assignee.name}>
+    <div className="tag" style={backgroudStyle}title={assignee.name}>
       <div className="tag-text">
         {!assignee.img && getInitials(assignee.name)}
       </div>
