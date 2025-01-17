@@ -23,43 +23,43 @@ NPM 10.2.5+
 ## Frontend Architecture
 1. Vite (React)
   Reasons: 
-     a. Vite is a next-generation, front-end tool that focuses on speed and performance.
-     b. Faster spin-up of the development server
-     c. Less waiting time for reflecting file updates
-     d. Improved build performance
-     e. Rich features
+     - Vite is a next-generation, front-end tool that focuses on speed and performance.
+     - Faster spin-up of the development server
+     - Less waiting time for reflecting file updates
+     - Improved build performance
+     - Rich features
 2. React
   Reasons:
-    a. Required by assessment
-    b. Component based architecture
-    c. No need for other react frameworks such as nextJS
+    - Required by assessment
+    - Component based architecture
+    - No need for other react frameworks such as nextJS
 3. Typescript
   Reasons:
-    a. Required
-    b. Type safety = less errors
+    - Required
+    - Type safety = less errors
 4. SCSS
   Reasons:
-    a. One of the most commonly used CSS pre-processor
-    b. Separation of JS / CSS
-    c. Cleaner HTML / Easier to read HTML
-    d. Name-spaced properly will reduce any css conflicts / bugs
+    - One of the most commonly used CSS pre-processor
+    - Separation of JS / CSS
+    - Cleaner HTML / Easier to read HTML
+    - Name-spaced properly will reduce any css conflicts / bugs
 5. No UI Library
   Reasons:
-    a. No ui libraries installed because because it’s a coding 	exercise project
+    - No ui libraries installed because because it’s a coding 	exercise project
 6. Icon Library react-icons
   Reasons:
-    a. Many icon libraries to choose from
-    b. Easy to find icons through their website via search
+    - Many icon libraries to choose from
+    - Easy to find icons through their website via search
 7. State Management (React Context)
   Reasons:
-    a. Context is a standard feature from React 16.x+ to manage state across the application.    
-	  b. Built into react, no additional dependencies such as redux
-    d. Avoids passing state via props across components
+    - Context is a standard feature from React 16.x+ to manage state across the application.
+    -  Built into react, no additional dependencies such as redux
+    - Avoids passing state via props across components
 8. Data Fetching using fetch
   Reasons:
-    a. Small project (only 2 end points)
-    b. no external dependency
-    c. Pretty easy to use
+    - Small project (only 2 end points)
+    - no external dependency
+    - Pretty easy to use
 
 ## Frontend Performance Considerations
 1. Memo: All components are wrapped in memo to improve performance. They will only re-render if their props are changed
@@ -72,16 +72,17 @@ NPM 10.2.5+
 ## Backend Architecture
 1. Node Server using Express
 2. Two get apis
-	a. /assignees : gets a list of assignees
-		Params: name: String
-		Returns: [{id: String, name: String, img:”String”}]
-	b. /tabledata : get table data for statusDataTable
-		params: none		Returns: [{id: String, name: String, type: String, value: [] | null }]
+- /assignees : gets a list of assignees
+  - Params: name: String
+  - Returns: [{id: String, name: String, img:”String”}]
+- /tabledata : get table data for statusDataTable
+  - params: none
+  - Returns: [{id: String, name: String, type: String, value: [] | null }]
 3. Static, generated data for the names & table
   Reasons:
-    a. Easy and fast to use
-    b. Minimal
-    c. Not a major focus for this assessment.
+    - Easy and fast to use
+    - Minimal
+    - Not a major focus for this assessment.
 
 ## Basic Assumptions
  1. This is a basic assessment and not 100% production ready code.
@@ -100,9 +101,9 @@ NPM 10.2.5+
 1. Table row can expand vertically
 2. Names can wrap casing the cell row to enlarge.
 3. Editor can be within the cell
-4. Gracefully handing overflow using adaptive breakpoints. 
-  a. Avatars and names: 1200px and above
-  b. Only Avatar: 0 to 1200px
+4. Gracefully handing overflow using adaptive breakpoints.
+   - Avatars and names: 1200px and above
+   - Only Avatar: 0 to 1200px
 5. Assignee Cell Component has hardcoded variable called "maxNames" attribute to limit the number of visible names.
 
 ## Improvements
