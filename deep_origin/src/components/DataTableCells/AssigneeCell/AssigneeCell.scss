@@ -50,16 +50,17 @@
     .assignee-cell__name {
       display: none;
     }
+    
   }
   // .assignee-count {
   //   display: none;
   // }
 }
 
-// @media screen and (min-width: 960px) {
-//   .assignee-count {
-//     display: none;
-//   }
-// }
+@media screen and (min-width: 1200px) {
+  .tag-tooltip {
+    display: none;
+  }
+}
 
-// 320, 480, 760, 960, 1200, and 1600
+//320, 480, 760, 960, 1200, and 1600

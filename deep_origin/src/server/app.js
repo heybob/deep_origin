@@ -19,7 +19,7 @@ const talbeData = {
         type: "assignee",
         value: [
           { name: "Bob Filiczkowski", id: "N62", img:"IMG_6041_sm.jpg"},
-          { name: "Kelly Filiczkowski", id: "N101" },
+          { name: "Kelly Filiczkowski", id: "N101", img:"IMG_6042_sm.jpg" },
         ],
       },
     ],
@@ -39,7 +39,7 @@ const talbeData = {
         type: "assignee",
         value: [
           { name: "Bob Filiczkowski", id: "N62", img:"IMG_6041_sm.jpg" },
-          { name: "Kelly Filiczkowski", id: "N101" },
+          { name: "Kelly Filiczkowski", id: "N101", img:"IMG_6042_sm.jpg" },
         ],
       },
     ],
@@ -59,7 +59,7 @@ const talbeData = {
         type: "assignee",
         value: [
           { name: "Bob Filiczkowski", id: "N62", img:"IMG_6041_sm.jpg" },
-          { name: "Kelly Filiczkowski", id: "N101" },
+          { name: "Kelly Filiczkowski", id: "N101", img:"IMG_6042_sm.jpg" },
         ],
       },
     ],
@@ -167,7 +167,7 @@ const assignees = [
   { id: "N98", name: "Jasmin Stracke" },
   { id: "N99", name: "Arely Lynch" },
   { id: "N100", name: "Cristal Lueilwitz IV" },
-  { id: "N101", name: "Kelly Filiczkowski" },
+  { id: "N101", name: "Kelly Filiczkowski", img:"IMG_6042_sm.jpg" },
 ];
 // Middleware
 app.use(json());
