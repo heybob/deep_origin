@@ -5,6 +5,7 @@ import NameTagListItem from "../../../NameTag/NameTagListItem";
 import { SearchCacheContext } from "../../../../contexts/contexts";
 import { IAssigneeValue } from "../../../../Interfaces/interfaces";
 import { keyGen } from "../../../../utils/utils";
+import { BiErrorCircle } from "react-icons/bi";
 
 interface IAssgineeFilterListProps {
     selectedAssignees: IAssigneeValue[]
@@ -19,11 +20,15 @@ function AssigneeFilterList({ selectedAssignees, addAssigneeCallback }:IAssginee
   const [assignees, setAssignees] = useState([]);
   const [timeoutPromise, setTimeoutPromise] = useState<number | null | undefined>();
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(false);
   const timeoutTime = 500;
 
   const fetchAssigneesNamesCallback = useCallback(
     async function fetchAsigneeNames() {
       try {
+        if(error){
+          setError(false);
+        }
         let res = await fetch(
           `http://localhost:3001/assignees?name=${searchTerm}`
         );
@@ -32,8 +37,10 @@ function AssigneeFilterList({ selectedAssignees, addAssigneeCallback }:IAssginee
         let cacheResult:Record<PropertyKey, any> = {};
         cacheResult[searchTerm] = result;
         setSearchCache({ ...searchCache, ...cacheResult });
+        
         setIsLoading(false);
       } catch (err) {
+        setError(true);
         console.log(err);
         setIsLoading(false);
       }
@@ -82,6 +89,7 @@ function AssigneeFilterList({ selectedAssignees, addAssigneeCallback }:IAssginee
     <div className="flist">
       <CgSearch className="flist__input__search" />
       <input
+        className={error ? 'flist__input_error' : ''}
         type="text"
         onClick={(e) => e.stopPropagation()}
         onChange={handleSearchTermChangeCallback}
@@ -90,6 +98,7 @@ function AssigneeFilterList({ selectedAssignees, addAssigneeCallback }:IAssginee
         placeholder="Enter a name to search."
       />
       {isLoading && <CgSpinner className="flist__input__spinner" />}
+      {error && <BiErrorCircle className="flist__input__error" />}
       {searchTerm.length > 0 && (
         <ul>
           {assignees &&
