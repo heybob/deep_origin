@@ -105,16 +105,16 @@ function AssigneeCell({ cell, editor }: ICellEditorProps) {
   return (
     <>
       <td className="assignee-cell"  onClick={(e) => edMode(e)}>
-        {cellValue.length > 0 && !editMode &&
+        {cellValue.length > 0 && !cellEditMode && 
           [...cellValue].slice(0,maxName).map((assignee) => {
             return (<AssigneeCellName key={keyGen()} assignee={assignee} />) 
           })}
-          {cellValue.length > 0 && editMode &&
+          {cellValue.length > 0 && cellEditMode &&
           cellValue.map((assignee) => {
             return (<AssigneeCellName key={keyGen()} assignee={assignee} />);
           })}
         {cellValue.length === 0 && <>Unassigned</>}
-        {cellValue.length > maxName  && !editMode && (
+        {cellValue.length > maxName  && !cellEditMode && (
           <AssgineeCount assignees={cellValue as IAssigneeValue[]} maxNames={maxName}/>
         )}
         {cellEditMode && editMode && getEditor(editor as string)}

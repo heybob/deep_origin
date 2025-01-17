@@ -98,5 +98,5 @@ Multiselect Assumptions
 3. Editor can be within the cell
 4. Gracefully handing overflow using adaptive breakpoints. 
   a. Avatars and names: 1200px and above
-  b. Only Avatar: 760px to 1200px
-  c. Just 1 Avatars and assignee count : 0 to 760px
+  b. Only Avatar: 0 to 1200px
+5. Component can use a maxNames attribute to limit the number of visible names
