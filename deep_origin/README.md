@@ -66,7 +66,7 @@ NPM 10.2.5+
 2. UseCallback: I applied useCallback to function so they only re-render when their dependencies change.
 3. SearchCache: I applies a very crude cache for the names data call when using the filter list. It caches every search term result. This reduces duplicate requests. 
 4. Search input debounce: The input is debounce on user keyboard clicks. This reduces the amount of data calls while the user is typing.
-5. Name Search input results limited to 25. Reducing the number of results and requiring the user to be more specific reduces DOM elements and memory which could be a performance issue if many element are downloaded. Especially with images.
+5. Name search input results limit: Limited the results to 25 list items. Reducing the number of results and requiring the user to be more specific reduces DOM elements and memory which could be a performance issue if many element are downloaded. Especially with images. Added a note to use about the limit.
 6. JS minification
 
 ## Backend Architecture
@@ -94,7 +94,7 @@ NPM 10.2.5+
  10. No Requirement for test cases
  11. Using Functional Components vs Class Components
  12. No internationalization
- 13. Hard coding strings is ok.
+ 13. Hard coding strings is ok for assessment but would not do so in production.
 
 ## Multi-select Assumptions
 1. Table row can expand vertically
@@ -103,7 +103,7 @@ NPM 10.2.5+
 4. Gracefully handing overflow using adaptive breakpoints. 
   a. Avatars and names: 1200px and above
   b. Only Avatar: 0 to 1200px
-5. Component can use a maxNames attribute to limit the number of visible names
+5. Assignee Cell Component has hardcoded variable called "maxNames" attribute to limit the number of visible names.
 
 ## Improvements
 1. The application would need to conform to production error handling.
@@ -117,5 +117,6 @@ NPM 10.2.5+
 9. The data structures for tables and cells would most likely change or be different.
 10. Table meta data could be expanded and improved to add more style attributes and properties as needed.
 11. AssigneeCount component tooltip of a list of names could use additional boundary edge detection to handle cases where the tooltip maybe out of view.
+12. AssigneeCell component could expose name limiting property to limit the number of visible names via metadata definition
 
 Thank you for the opportunity. If you'd like to discuss more, please feel free to contact me on [LinkedIn](http://www.linkedin.com/in/heybob).
