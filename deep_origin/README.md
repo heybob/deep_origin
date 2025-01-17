@@ -117,6 +117,6 @@ NPM 10.2.5+
 9. The data structures for tables and cells would most likely change or be different.
 10. Table meta data could be expanded and improved to add more style attributes and properties as needed.
 11. AssigneeCount component tooltip of a list of names could use additional boundary edge detection to handle cases where the tooltip maybe out of view.
-12. AssigneeCell component could expose name limiting property to limit the number of visible names via metadata definition
+12. AssigneeCell component could expose "maxNames" limiting property to limit the number of visible names via metadata definition
 
 Thank you for the opportunity. If you'd like to discuss more, please feel free to contact me on [LinkedIn](http://www.linkedin.com/in/heybob).
