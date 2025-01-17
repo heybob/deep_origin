@@ -1,20 +1,16 @@
 import { useState, useEffect, useContext, useCallback, memo } from "react";
 import AssigneeFilterList from "./Editor/AssigneeFilterList";
-import NameTag from "../../NameTag/NameTag";
 import "./AssigneeCell.scss";
-import { CgCloseO } from "react-icons/cg";
-import { DataTableContext } from "../../../contexts/contexts";
+import { AssigneeCellContext, DataTableContext } from "../../../contexts/contexts";
 import AssgineeCount from "./AssigneeCount";
 import { keyGen } from "../../../utils/utils";
 import {
   IAssigneeValue,
   ICellEditorProps
 } from "../../../Interfaces/interfaces";
+import AssigneeCellName from "./AssigneeCellName";
 
-interface AssigneeCellNameProps {
-  assignee: IAssigneeValue;
-}
-//TODO: Implement Editor
+
 function AssigneeCell({ cell, editor }: ICellEditorProps) {
   const { editModeApi } = useContext(DataTableContext);
   const [editMode, setEditMode, editSubscriberId] = editModeApi;
@@ -46,7 +42,7 @@ function AssigneeCell({ cell, editor }: ICellEditorProps) {
     }
   }
 
-  //TODO: Add to Context API
+
   const addAssigneeCallback = useCallback(addAssignee, [cellValue]);
 
   function addAssignee(
@@ -58,7 +54,7 @@ function AssigneeCell({ cell, editor }: ICellEditorProps) {
       setCellValue([...cellValue, assignee]);
     }
   }
-  //TODO: Add to Context API
+
   const removeAssigneeCallback = useCallback(removeAssignee, [cellValue]);
 
   function removeAssignee(
@@ -77,41 +73,20 @@ function AssigneeCell({ cell, editor }: ICellEditorProps) {
   function getEditor(editor:string) {
     switch(editor) {
         case 'AssigneeFilterList':
-            return (<AssigneeFilterList selectedAssignees={cellValue} addAssigneeCallback={addAssigneeCallback}/>)
+            return (<AssigneeFilterList selectedAssignees={cellValue} />)
     }
-  }
-  function AssigneeCellName({ assignee }: AssigneeCellNameProps) {
-    return (
-      <div
-        key={assignee.id}
-        className={
-          !cellEditMode
-            ? "assignee-cell__container"
-            : "assignee-cell__container_edit"
-        }>
-        <NameTag assignee={assignee} />
-        <div className="assignee-cell__name">{assignee.name}</div>
-        {cellEditMode && editMode && (
-          <button
-            className="assignee-cell__button"
-            onClick={(e) => removeAssigneeCallback(e, assignee)}>
-            <CgCloseO className="assignee-cell__delete" />
-          </button>
-        )}
-      </div>
-    );
   }
 
   return (
-    <>
+    <AssigneeCellContext.Provider value={{addAssigneeCallback: addAssigneeCallback, removeAssigneeCallback: removeAssigneeCallback}}>
       <td className="assignee-cell"  onClick={(e) => edMode(e)}>
         {cellValue.length > 0 && !cellEditMode && 
           [...cellValue].slice(0,maxName).map((assignee) => {
-            return (<AssigneeCellName key={keyGen()} assignee={assignee} />) 
+            return (<AssigneeCellName cellEditMode={cellEditMode} editMode={editMode} key={keyGen()} assignee={assignee} />) 
           })}
           {cellValue.length > 0 && cellEditMode &&
           cellValue.map((assignee) => {
-            return (<AssigneeCellName key={keyGen()} assignee={assignee} />);
+            return (<AssigneeCellName cellEditMode={cellEditMode} editMode={editMode} key={keyGen()} assignee={assignee} />);
           })}
         {cellValue.length === 0 && <>Unassigned</>}
         {cellValue.length > maxName  && !cellEditMode && (
@@ -119,7 +94,7 @@ function AssigneeCell({ cell, editor }: ICellEditorProps) {
         )}
         {cellEditMode && editMode && getEditor(editor as string)}
       </td>
-    </>
+    </AssigneeCellContext.Provider>
   );
 }
 export default memo(AssigneeCell);

@@ -9,11 +9,10 @@ import { BiErrorCircle } from "react-icons/bi";
 
 interface IAssgineeFilterListProps {
     selectedAssignees: IAssigneeValue[]
-    addAssigneeCallback: (e: React.MouseEvent<HTMLLIElement, MouseEvent>, assignee: IAssigneeValue)=> void
 }
 
 //TODO: Remove add callback to assigneeCell Context
-function AssigneeFilterList({ selectedAssignees, addAssigneeCallback }:IAssgineeFilterListProps) {
+function AssigneeFilterList({selectedAssignees}:IAssgineeFilterListProps) {
   const { searchCacheApi } = useContext(SearchCacheContext);
   const [searchCache, setSearchCache] = searchCacheApi;
   const [searchTerm, setSearchTerm] = useState("");
@@ -22,6 +21,7 @@ function AssigneeFilterList({ selectedAssignees, addAssigneeCallback }:IAssginee
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
   const timeoutTime = 500;
+  
 
   const fetchAssigneesNamesCallback = useCallback(
     async function fetchAsigneeNames() {
@@ -108,7 +108,6 @@ function AssigneeFilterList({ selectedAssignees, addAssigneeCallback }:IAssginee
                 key={keyGen()}
                 isDisabled={inDisabledCallback(assignee)}
                 assignee={assignee}
-                selectCallback={addAssigneeCallback}
               />
             ))}
           {assignees.length == 25 && (

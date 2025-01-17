@@ -6,16 +6,4 @@
   font-size: 14px;
 }
 
-table {
-  width: 100%;
-  border: 1px solid lightgray;
-  border-collapse: collapse;
-}
-thead tr {
-  background-color: rgb(245, 245, 245);
-  width: 100%;
-}
 
-thead tr th {
-  border: 1px solid transparent;
-}

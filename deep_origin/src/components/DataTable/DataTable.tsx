@@ -5,11 +5,11 @@ import { memo } from "react";
 import { statusDataTableMeta } from "./dataTableMeta";
 import { keyGen } from "../../utils/utils";
 import {
-  IColumnDef,
   IDataTableProps,
   IEditors,
   IStatusDataTableMeta,
 } from "../../Interfaces/interfaces";
+import DataTableColumns from "./DataTableColumns";
 
 interface IDataTableMetaObj {
   statusDataTable: IStatusDataTableMeta;
@@ -24,12 +24,8 @@ function getTable(tableName: string): IStatusDataTableMeta {
 
 function DataTable({ rows, type }: IDataTableProps) {
   const table = getTable(type);
-  const columnItems = table.columnDef.map((col: IColumnDef) => (
-    <th key={keyGen()} style={col.style}>
-      {col.name}
-    </th>
-  ));
-  const bodyItems = rows.map((row) => (
+
+  const rowItems = rows.map((row) => (
     <tr key={keyGen()}>
       {row.map((cell) => (
         <CellRenderer
@@ -40,14 +36,15 @@ function DataTable({ rows, type }: IDataTableProps) {
       ))}
     </tr>
   ));
+
   return (
     <>
       <TableHeader name={table.displayName} />
       <table className="data-table">
         <thead>
-          <tr>{columnItems}</tr>
+          <tr><DataTableColumns columns={table.columnDef} /></tr>
         </thead>
-        <tbody>{bodyItems}</tbody>
+        <tbody>{rowItems}</tbody>
       </table>
     </>
   );

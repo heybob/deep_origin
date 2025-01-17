@@ -1,5 +1,17 @@
 .data-table {
+  width: 100%;
+  border: 1px solid lightgray;
+  border-collapse: collapse;
   text-align: left;
+  thead tr {
+    background-color: rgb(245, 245, 245);
+    width: 100%;
+  }
+  
+  thead tr th {
+    border: 1px solid transparent;
+  }
+
   tr {
     border-bottom: 1px solid lightgray;
   }

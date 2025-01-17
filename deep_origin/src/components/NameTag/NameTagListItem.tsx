@@ -1,22 +1,22 @@
-import { memo } from "react";
+import { memo, useContext } from "react";
 import NameTag from "./NameTag";
 import "./NameTaglistItem.scss";
 import { IAssigneeValue } from "../../Interfaces/interfaces";
+import { AssigneeCellContext } from "../../contexts/contexts";
 
 interface INameTagListItemProps {
   assignee: IAssigneeValue;
-  selectCallback?: (e: React.MouseEvent<HTMLLIElement, MouseEvent>, name: IAssigneeValue) => void;
     isDisabled?: boolean | null;
 }
 
 function NameTagListItem({
   assignee,
-  selectCallback,
   isDisabled,
 }: INameTagListItemProps) {
   const className = isDisabled ? "name-tag__li-disabled" : "name-tag__li";
+  const {addAssigneeCallback} = useContext(AssigneeCellContext);
   return (
-    <li className={className} onClick={(e) => {if(selectCallback) {selectCallback(e, assignee)}}}>
+    <li className={className} onClick={(e) => {if(addAssigneeCallback) {addAssigneeCallback(e, assignee)}}}>
       <NameTag assignee={assignee} />
       {assignee.name}
     </li>

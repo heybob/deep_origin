@@ -65,9 +65,27 @@ export interface IChildren {
 export type EmptyObj = Record<PropertyKey, never>;
 
 export interface IEditModeApi {
-    editModeApi: [boolean, (value: boolean, subscriberId: string) => void, string];
-  }
+  editModeApi: [
+    boolean,
+    (value: boolean, subscriberId: string) => void,
+    string
+  ];
+}
 
- export interface ISearchCacheAPI {
-    searchCacheApi: [Record<PropertyKey, any>, (value:Record<PropertyKey, any>)=>void];
-  }
+export interface ISearchCacheAPI {
+  searchCacheApi: [
+    Record<PropertyKey, any>,
+    (value: Record<PropertyKey, any>) => void
+  ];
+}
+
+export interface IAssigneeCellContextAPI {
+  addAssigneeCallback: (
+    e: React.MouseEvent<HTMLLIElement, MouseEvent>,
+    assignee: IAssigneeValue
+  ) => void;
+  removeAssigneeCallback: (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+    assignee: IAssigneeValue
+  ) => void;
+}
