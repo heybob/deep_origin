@@ -11,7 +11,6 @@ interface IAssgineeFilterListProps {
     selectedAssignees: IAssigneeValue[]
 }
 
-//TODO: Remove add callback to assigneeCell Context
 function AssigneeFilterList({selectedAssignees}:IAssgineeFilterListProps) {
   const { searchCacheApi } = useContext(SearchCacheContext);
   const [searchCache, setSearchCache] = searchCacheApi;

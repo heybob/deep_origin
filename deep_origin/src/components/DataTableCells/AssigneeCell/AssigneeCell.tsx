@@ -30,7 +30,6 @@ function AssigneeCell({ cell, editor }: ICellEditorProps) {
     }
   }, [editMode]);
 
-  //TODO: Make edit mode a subscrioptiong with callback to close edit mode in the data provider to close edit modes on other cells. sub/pub patern.
   function edMode(e: React.MouseEvent<HTMLTableCellElement, MouseEvent>) {
     e.stopPropagation();
     if (!editMode) {

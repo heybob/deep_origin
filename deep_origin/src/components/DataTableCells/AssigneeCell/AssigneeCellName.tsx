@@ -9,9 +9,7 @@ interface AssigneeCellNameProps {
     editMode: boolean,
     assignee: IAssigneeValue;
   }
-//TODO Assignee Cell Context with remove AssigneeCallback
-
-
+  
 function AssigneeCellName({ cellEditMode, editMode, assignee }: AssigneeCellNameProps) {
     const {removeAssigneeCallback} = useContext(AssigneeCellContext);
     return (

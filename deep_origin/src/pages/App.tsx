@@ -12,12 +12,12 @@ function App() {
   useEffect(() => {
     async function getTableData() {
       try {
-        let res = await fetch("http://localhost:3001/tableData");
-        let data: IDataTableData = await res.json();
-        setTable(data);
         if(error) {
           setError(false);
         }
+        let res = await fetch("http://localhost:3001/tableData");
+        let data: IDataTableData = await res.json();
+        setTable(data);
       } catch (err) {
         console.error(err);
         setError(true);
