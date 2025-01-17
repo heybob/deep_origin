@@ -106,7 +106,7 @@ NPM 10.2.5+
 5. Component can use a maxNames attribute to limit the number of visible names
 
 ## Improvements
-1.The application would need to conform to production error handling.
+1. The application would need to conform to production error handling.
 2. Some functions could be moved into utility to be reused (debounce)
 3. The caching of the search terms is very crude. It would need a caching strategy and a way to invalidate the cache if new names are added to the list. 
 4. The application would need to use a UX/UI component library. This would need to be adapted to work with any existing libraries in the parent application
